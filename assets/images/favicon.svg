@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <rect width="256" height="256" fill="#ffffff"/>
+  <circle cx="196" cy="72" r="18" fill="#007aff"/>
+  <text x="32" y="160" font-family="Syne, Arial, sans-serif" font-size="96" font-weight="800" fill="#111827">RN</text>
+</svg>

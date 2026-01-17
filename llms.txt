@@ -1,7 +1,11 @@
 Project: Ronel Portfolio (static HTML/CSS/JS)
 
+People
+- Ronel Guidigan: video editor/monteur and colorist. Portfolio showcases his work, method, and contact info.
+- Website creator: Freddy Agbona (fredthedev.com).
+
 Purpose
-- Single-page portfolio site (French content) rebuilt from a React/Tailwind version.
+- Single-page portfolio site (French content) presenting Ronel's services, identity, and recent projects.
 
 Key files
 - index.html
