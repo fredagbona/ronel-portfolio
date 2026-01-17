@@ -1,0 +1,20 @@
+Project: Ronel Portfolio (static HTML/CSS/JS)
+
+Purpose
+- Single-page portfolio site (French content) rebuilt from a React/Tailwind version.
+
+Key files
+- index.html
+- assets/style/style.css
+- assets/script/script.js
+
+Behavior
+- Navbar shrinks and blurs on scroll; mobile menu locks body scroll.
+- Hero text and background blobs animate with scroll-based parallax.
+- TikTok embeds are lazy-loaded via IntersectionObserver or user click.
+
+Editing guidance
+- Keep styling in `assets/style/style.css`.
+- Keep behavior in `assets/script/script.js`.
+- Avoid introducing build tools; keep it static.
+- Prefer ASCII unless the existing content requires accents.
