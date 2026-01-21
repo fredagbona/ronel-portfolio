@@ -49,7 +49,7 @@ const loadTikTokEmbed = (container) => {
       }
     })
     .catch(() => {
-      container.innerHTML = `<a target="_blank" rel="noopener noreferrer" href="${videoUrl}">Ouvrir sur TikTok</a>`;
+      container.innerHTML = `<a target="_blank" rel="noopener noreferrer" href="${videoUrl}">Open on TikTok</a>`;
     });
 };
 
@@ -116,7 +116,7 @@ window.addEventListener('resize', () => {
 
 if (footerYear) {
   const year = new Date().getFullYear();
-  footerYear.textContent = `© ${year} RN. Vidéo. Tous droits réservés.`;
+  footerYear.textContent = `© ${year} RN. Video. All rights reserved.`;
 }
 
 updateNavbar();

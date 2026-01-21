@@ -594,6 +594,40 @@ main {
   font-weight: 300;
 }
 
+.tools {
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.tools-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  color: #9ca3af;
+  font-weight: 700;
+}
+
+.tools-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.tools-list span {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 12px;
+  font-weight: 500;
+  color: #e5e7eb;
+  background: rgba(255, 255, 255, 0.04);
+  letter-spacing: 0.05em;
+}
+
 .portfolio {
   padding: 128px 24px;
   background: #fff;
