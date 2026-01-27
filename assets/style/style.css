@@ -762,6 +762,12 @@ main {
   gap: 24px;
 }
 
+.portfolio-cta-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
 .portfolio-cta p {
   font-size: 14px;
   color: #9ca3af;
@@ -800,6 +806,19 @@ main {
   width: 20px;
   height: 20px;
   fill: currentColor;
+}
+
+.cta-link-outline {
+  background: transparent;
+  color: #111827;
+  border: 2px solid #111827;
+  box-shadow: none;
+}
+
+.cta-link-outline:hover {
+  background: #111827;
+  color: #fff;
+  box-shadow: none;
 }
 
 .contact {
@@ -1012,6 +1031,10 @@ main {
 
   .portfolio-cta {
     margin-top: 192px;
+  }
+
+  .portfolio-cta-actions {
+    flex-direction: row;
   }
 
   .contact {
