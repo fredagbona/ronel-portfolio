@@ -6,9 +6,10 @@ const heroTitle = document.getElementById('heroTitle');
 const heroCopy = document.getElementById('heroCopy');
 const footerYear = document.getElementById('footerYear');
 const parallaxItems = document.querySelectorAll('[data-parallax]');
-const tiktokPlaceholders = document.querySelectorAll('.tiktok-placeholder');
+const socialPlaceholders = document.querySelectorAll('.tiktok-placeholder, .social-placeholder');
 
 let tiktokScriptPromise;
+let instagramScriptPromise;
 
 const loadTikTokScript = () => {
   if (tiktokScriptPromise) {
@@ -25,16 +26,52 @@ const loadTikTokScript = () => {
   return tiktokScriptPromise;
 };
 
-const loadTikTokEmbed = (container) => {
+const loadInstagramScript = () => {
+  if (instagramScriptPromise) {
+    return instagramScriptPromise;
+  }
+  instagramScriptPromise = new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = 'https://www.instagram.com/embed.js';
+    script.async = true;
+    script.onload = resolve;
+    script.onerror = reject;
+    document.head.appendChild(script);
+  });
+  return instagramScriptPromise;
+};
+
+const loadSocialEmbed = (container) => {
   if (!container || container.dataset.loaded === 'true') {
     return;
   }
   const videoId = container.dataset.videoId;
   const videoUrl = container.dataset.videoUrl;
-  if (!videoId || !videoUrl) {
+  if (!videoUrl) {
     return;
   }
   container.dataset.loaded = 'true';
+  if (videoUrl.includes('instagram.com')) {
+    container.innerHTML = `
+      <blockquote class="instagram-media" data-instgrm-permalink="${videoUrl}" data-instgrm-version="14">
+        <a target="_blank" rel="noopener noreferrer" href="${videoUrl}">Open on Instagram</a>
+      </blockquote>
+    `;
+    loadInstagramScript()
+      .then(() => {
+        if (window.instgrm && window.instgrm.Embeds) {
+          window.instgrm.Embeds.process();
+        }
+      })
+      .catch(() => {
+        container.innerHTML = `<a target="_blank" rel="noopener noreferrer" href="${videoUrl}">Open on Instagram</a>`;
+      });
+    return;
+  }
+
+  if (!videoId) {
+    return;
+  }
   container.innerHTML = `
     <blockquote class="tiktok-embed" cite="${videoUrl}" data-video-id="${videoId}">
       <section>
@@ -122,10 +159,10 @@ if (footerYear) {
 updateNavbar();
 updateHeroParallax();
 
-tiktokPlaceholders.forEach((placeholder) => {
+socialPlaceholders.forEach((placeholder) => {
   const button = placeholder.querySelector('button');
   if (button) {
-    button.addEventListener('click', () => loadTikTokEmbed(placeholder));
+    button.addEventListener('click', () => loadSocialEmbed(placeholder));
   }
 });
 
@@ -142,5 +179,5 @@ if ('IntersectionObserver' in window) {
     { rootMargin: '200px' }
   );
 
-  tiktokPlaceholders.forEach((placeholder) => observer.observe(placeholder));
+  socialPlaceholders.forEach((placeholder) => observer.observe(placeholder));
 }
